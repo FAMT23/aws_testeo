@@ -6,7 +6,7 @@ phases:
       python: 3.9
     commands:
       - dnf install -y pip
-      - dnf install -y mariadb105-devel gcc python3-devel libffi-devel
+      - dnf install -y mariadb105-devel gcc python3-devel 
   pre_build:
     commands:
       - echo "Installing Python dependencies from requirements.txt..."
