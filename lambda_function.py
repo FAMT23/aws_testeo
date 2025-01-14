@@ -1,4 +1,4 @@
-import os
+'''import os
 import MySQLdb
 
 def get_db_connection():
@@ -8,14 +8,16 @@ def get_db_connection():
         passwd=os.environ['DB_PASSWORD'],
         db=os.environ['DB_NAME']
     )
-
+'''
 def lambda_handler(event, context):
     try:
+        '''
         conn = get_db_connection()
         with conn.cursor() as cursor:
             cursor.execute("SELECT NOW()")
             result = cursor.fetchone()
         conn.close()
+        '''
         
         return {
             'statusCode': 200,
