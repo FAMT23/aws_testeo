@@ -4,22 +4,23 @@ phases:
   install:
     runtime-versions:
       python: 3.9
+    commands:
+      - echo "Updating system packages..."
+      - yum update -y
+      - echo "Installing dependencies..."
+      - yum install -y mariadb-devel gcc python3-devel libffi-devel
   pre_build:
     commands:
-      - echo "Updating and installing system dependencies..."
-      - yum update -y
-      - yum install -y mariadb-devel gcc python3-devel libffi-devel
       - echo "Installing Python dependencies..."
       - pip install -r requirements.txt -t ./python/lib/python3.9/site-packages
   build:
     commands:
-      - echo "Preparing deployment package..."
+      - echo "Creating deployment package..."
       - zip -r deployment-package.zip lambda_function.py
       - zip -r deployment-package.zip ./python/lib/python3.9/site-packages/*
-      - echo "Deployment package ready."
   post_build:
     commands:
-      - echo "Build completed successfully!"
+      - echo "Build completed successfully."
 
 artifacts:
   files:
