@@ -15,7 +15,7 @@ phases:
     commands:
       - echo "Creating deployment package..."
       - zip -r deployment-package.zip lambda_function.py
-      - zip -r deployment-package.zip . -x '.env' -x '.db' -x '.github/**' -x 'static/**' -x 'cache/**' -x 'pytest_cache/**' -x 'node_modules/**' -x '**/tests/**' -x '**sqlite3**' -x '**.pdf' -x '**.ppt' -x '**.doc' -x '**.docx' -x '**.zip' -x '**/__pycache__/**'
+      - zip -r deployment-package.zip . -x '.env' -x '.db' -x '.github/**' -x '.git/**' -x 'static/**' -x 'cache/**' -x 'pytest_cache/**' -x 'node_modules/**' -x '**/tests/**' -x '**sqlite3**' -x '**.pdf' -x '**.ppt' -x '**.doc' -x '**.docx' -x '**.zip' -x '**/__pycache__/**'
   post_build:
     commands:
       - echo "Build completed successfully."
