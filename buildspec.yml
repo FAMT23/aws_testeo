@@ -5,10 +5,8 @@ phases:
     runtime-versions:
       python: 3.9
     commands:
-      - echo "Updating system packages..."
-      - yum update -y
-      - echo "Installing system dependencies..."
-      - yum install -y gcc python3-devel 
+      - dnf install -y pip
+      - dnf install -y mariadb105-devel gcc python3-devel libffi-devel
   pre_build:
     commands:
       - echo "Installing Python dependencies from requirements.txt..."
