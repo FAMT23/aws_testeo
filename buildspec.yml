@@ -6,7 +6,9 @@ phases:
       python: 3.9
     commands:
       - echo "Updating system packages..."
-      - yum update -y
+      - yum install -y amazon-linux-extras
+      - amazon-linux-extras enable mariadb10.5
+      - yum clean metadata
       - echo "Installing dependencies..."
       - yum install -y mariadb-devel gcc python3-devel libffi-devel
   pre_build:
