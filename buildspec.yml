@@ -8,7 +8,7 @@ phases:
       - echo "Updating system packages..."
       - yum update -y
       - echo "Installing system dependencies..."
-      - yum install -y gcc python3-devel libffi-devel
+      - yum install -y gcc python3-devel 
   pre_build:
     commands:
       - echo "Installing Python dependencies from requirements.txt..."
