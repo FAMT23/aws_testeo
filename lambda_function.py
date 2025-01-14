@@ -21,7 +21,7 @@ def lambda_handler(event, context):
         
         return {
             'statusCode': 200,
-            'body': f'Database connection successful! Current time: {result[0]}'
+            'body': f'Database connection successful! Current time: '
         }
     except Exception as e:
         return {
