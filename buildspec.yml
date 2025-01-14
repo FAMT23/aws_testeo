@@ -6,22 +6,21 @@ phases:
       python: 3.9
   pre_build:
     commands:
-      - echo "Installing system dependencies..."
+      - echo "Updating and installing system dependencies..."
       - yum update -y
       - yum install -y mysql-devel gcc python3-devel libffi-devel
       - echo "Installing Python dependencies..."
-      - pip install -r requirements.txt
+      - pip install -r requirements.txt -t ./python/lib/python3.9/site-packages
   build:
     commands:
-      - echo "Zipping lambda package..."
+      - echo "Preparing deployment package..."
       - zip -r deployment-package.zip lambda_function.py
-      - zip -r deployment-package.zip /usr/lib64/mysql/*.so* 
       - zip -r deployment-package.zip ./python/lib/python3.9/site-packages/*
+      - echo "Deployment package ready."
   post_build:
     commands:
-      - echo "Build completed"
+      - echo "Build completed successfully!"
 
 artifacts:
   files:
     - deployment-package.zip
-  name: lambda-deployment-package
