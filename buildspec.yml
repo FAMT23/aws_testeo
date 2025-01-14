@@ -6,14 +6,12 @@ phases:
       python: 3.9
     commands:
       - echo "Updating system packages..."
-      - yum install -y amazon-linux-extras
-      - amazon-linux-extras enable mariadb10.5
-      - yum clean metadata
-      - echo "Installing dependencies..."
-      - yum install -y mariadb-devel gcc python3-devel libffi-devel
+      - yum update -y
+      - echo "Installing system dependencies..."
+      - yum install -y gcc python3-devel libffi-devel
   pre_build:
     commands:
-      - echo "Installing Python dependencies..."
+      - echo "Installing Python dependencies from requirements.txt..."
       - pip install -r requirements.txt -t ./python/lib/python3.9/site-packages
   build:
     commands:
