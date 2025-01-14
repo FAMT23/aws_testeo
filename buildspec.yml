@@ -8,7 +8,7 @@ phases:
     commands:
       - echo "Updating and installing system dependencies..."
       - yum update -y
-      - yum install -y mysql-devel gcc python3-devel libffi-devel
+      - yum install -y mariadb-devel gcc python3-devel libffi-devel
       - echo "Installing Python dependencies..."
       - pip install -r requirements.txt -t ./python/lib/python3.9/site-packages
   build:
