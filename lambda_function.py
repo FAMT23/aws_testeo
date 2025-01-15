@@ -1,6 +1,6 @@
-'''import os
+import os
 import MySQLdb
-
+'''
 def get_db_connection():
     return MySQLdb.connect(
         host=os.environ['DB_HOST'],
