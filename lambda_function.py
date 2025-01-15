@@ -1,5 +1,7 @@
 import os
-import MySQLdb
+#import MySQLdb
+import pymysql
+pymysql.install_as_MySQLdb()
 '''
 def get_db_connection():
     return MySQLdb.connect(
